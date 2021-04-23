@@ -75,7 +75,7 @@ def send():
     if msg != '':
         ChatLog.config(state=NORMAL)
         ChatLog.insert(END, "You: " + msg + '\n\n')
-        ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
+        ChatLog.config(foreground="#44890", font=("open sans", 12 ))
 
         res = chatbot_response(msg)
         ChatLog.insert(END, "Bot: " + res + '\n\n')
