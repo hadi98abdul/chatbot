@@ -21,16 +21,6 @@ def clean_up_sentence(sentence):
 
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 
-def lambda_func(n):
-  return lambda a : a * n
-
-mydoubler = myfunc(2)
-mytripler = myfunc(3)
-
-print(mydoubler(11))
-print(mytripler(11))
-
-
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
@@ -71,7 +61,7 @@ def send():
     if msg != '':
         ChatLog.config(state=NORMAL)
         ChatLog.insert(END, "You: " + msg + '\n\n')
-        ChatLog.config(foreground="#44890", font=("open sans", 12 ))
+        ChatLog.config(foreground="#ffffff", font=("Times New Roman", 12 ))
 
         res = chatbot_response(msg)
         ChatLog.insert(END, "Bot: " + res + '\n\n')
