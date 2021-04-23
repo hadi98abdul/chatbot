@@ -21,15 +21,19 @@ def clean_up_sentence(sentence):
 
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 
-def lambda_func(n):
-  return lambda a : a * n
-
-mydoubler = myfunc(2)
-mytripler = myfunc(3)
-
-print(mydoubler(11))
-print(mytripler(11))
-
+def bow(sentence, words, show_details=True):
+    # tokenize the pattern
+    sentence_words = clean_up_sentence(sentence)
+    # bag of words - matrix of N words, vocabulary matrix
+    bag = [0]*len(words)
+    for s in sentence_words:
+        for i,w in enumerate(words):
+            if w == s:
+                # assign 1 if current word is in the vocabulary position
+                bag[i] = 1
+                if show_details:
+                    print ("found in bag: %s" % w)
+    return(np.array(bag))
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
